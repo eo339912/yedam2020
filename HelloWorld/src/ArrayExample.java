@@ -7,6 +7,14 @@ public static void main(String[] args) {
 	System.out.println(intAry[2]);
 	System.out.println(intAry[3]);
 	
+	int[] int2Ary = new int[5]; //배열의 크기 지정
+	int2Ary[0] = 1;
+	int2Ary[4] = 1;
+	//int2Ary[5] = 1; //ArrayIndexOutOfBoundsException 배열범위가 넘어간 예외
+	
+	
+	//int[] int3Ary = null;
+	//int3Ary = new int[] {1, 2, 3};
 	
 	
 	System.out.println("===========================");
