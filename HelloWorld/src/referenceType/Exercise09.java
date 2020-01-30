@@ -30,8 +30,8 @@ public class Exercise09 {
 				System.out.println(scores.length);
 				for(int i = 0; i < scores.length; i++) {
 					System.out.print("scores[" + i + "]" + "> ");
-					int inputSd2 = scanner.nextInt();
-					scores[i] = inputSd2; 
+					int inputSd = scanner.nextInt();
+					scores[i] = inputSd; 
 					//System.out.println(inputSd2);
 					
 				}
@@ -42,7 +42,22 @@ public class Exercise09 {
 					System.out.println("scores[" + i + "]" + ": " + scores[i]);
 				}				
 			}else if(selectNo == 4) {//분석 최고 점수 및 평균 점수를 구해라
+				int par = 0;
+				for(int i = 0; i < scores.length; i++) {
+					if(par < scores[i]) {
+						par = scores[i];
+					}
+				}
+				System.out.println("최고점수 :" + par);
 				
+				double par2 = 0;
+				int sum = 0;
+				
+				for(int i = 0; i < scores.length; i++) {
+					sum = sum + scores[i]; //
+				}
+				par2 = (double)sum/scores.length;
+				System.out.println("평균점수 :" + par2);
 			}else if(selectNo == 5) {
 				run = false;
 			}
