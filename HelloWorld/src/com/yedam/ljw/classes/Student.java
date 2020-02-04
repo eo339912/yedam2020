@@ -83,8 +83,11 @@ public class Student {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", age=" + age + ", height=" + height + ", weight=" + weight + "]";
+	}
 	
 	
 }

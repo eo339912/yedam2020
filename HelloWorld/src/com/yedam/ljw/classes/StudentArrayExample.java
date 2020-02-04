@@ -1,10 +1,19 @@
 package com.yedam.ljw.classes;
 
 public class StudentArrayExample {
+	static Student[] stdAry = new Student[3]; // Student class에 변수값으로 배열을 추가한다.
+	
+	public static Student getStudent(String name) {
+		Student st1 = null;
+		for (int i = 0; i < stdAry.length; i++) {
+			if(stdAry[i].getName().equals(name)) {
+				return stdAry[i];
+			}
+		}
+		return st1;
+	}
+	
 	public static void main(String[] args) {
-
-		Student[] stdAry = new Student[3]; // Student class에 변수값으로 배열을 추가한다.
-
 		Student sn = new Student("choi", 20, 180, 70);
 
 		Student stnt = new Student();
@@ -71,6 +80,13 @@ public class StudentArrayExample {
 		for (int j = 0; j < sortAry.length; j++) {
 			System.out.print(sortAry[j] + " ");
 		}
+		System.out.println();
+		
+		Student s1 = getStudent("choi");
+		System.out.println(s1.toString());
+		System.out.println(getStudent("choi"));
 		// **************
-	}
+	}//end of main
+	
+	
 }
