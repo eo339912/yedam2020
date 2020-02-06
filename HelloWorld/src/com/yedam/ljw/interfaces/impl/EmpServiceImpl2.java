@@ -22,8 +22,9 @@ public class EmpServiceImpl2 implements EmpService {
 	}
 
 	@Override
-	public void delEmp(int empNo) {
+	public void delEmp(int empNo, Employee[] emps) {
 		System.out.println("더 좋은 삭제기능.");
 	}
+
 	
 }

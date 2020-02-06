@@ -1,10 +1,12 @@
 package com.yedam.ljw.interfaces.control;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.yedam.ljw.interfaces.impl.EmpServiceImpl;
 import com.yedam.ljw.interfaces.model.EmpService;
 import com.yedam.ljw.interfaces.model.Employee;
+import com.yedam.ljw.interfaces.model.Employees;
 
 public class EmpProc {
 	Employee[] employees = new Employee[10]; 
@@ -16,7 +18,7 @@ public class EmpProc {
 		System.out.println("프로그램 시작.");
 		while(true) {
 			System.out.println("=====================");
-			System.out.println("1. 추가기능 | 2. 조회기능 | 3. 리스트기능 | 4. 삭제기능 | 5. 종료");
+			System.out.println("1. 추가기능 | 2. 조회기능 | 3. 리스트기능 | 4. 삭제기능 | 5. 종료 |8. 전체 조회| 9. 한건 조회| 10. 수정 | 11. 삭제");
 			System.out.println("=====================");
 			System.out.print("선택> ");
 			
@@ -48,6 +50,63 @@ public class EmpProc {
 				service.delEmp(no, employees);
 			}else if(menu == 5) {
 				break;
+			}else if(menu == 6) {
+				service.searchEmployees();
+				
+			}else if(menu == 7) {
+				System.out.println("last입력");
+				String lastName = scn.nextLine();
+				System.out.println("이메일입력");
+				String email = scn.nextLine();
+				System.out.println("업무입력"); //IT_PROG
+				String jobId = scn.nextLine();
+				
+				Employees emp = new Employees();
+				
+				emp.setLastName(lastName);
+				emp.setEmail(email);
+				emp.setJobId(jobId);
+				
+				service.insertEmployees(emp);
+			}else if(menu == 8) {
+				List<Employees> list = service.getDBEmployees();
+				for(Employees emp : list) {
+					System.out.println(emp);
+				}
+			}else if(menu == 9) {
+				System.out.println("사원번호 입력: ");
+				int no = scn.nextInt();
+				//service.searchEmp(no, employees);
+				Employees emp = service.getDBEmployee(no);
+				System.out.println(emp);
+				
+			}else if(menu == 10) {
+								
+				System.out.println("조회 사원 입력");
+				int empId = scn.nextInt();
+				System.out.println("급여 인상분 입력");
+				int sal = scn.nextInt();
+				scn.nextLine();
+				System.out.println("변경할 이메일 입력");
+				String email = scn.nextLine();
+				
+				Employees emp = new Employees();
+				emp.setSalary(sal);
+				emp.setEmail(email);
+				emp.setEmployeeId(empId);
+				
+				
+				
+				service.updateDBEmp(emp);
+			}else if(menu == 11) {
+				System.out.println("삭제 사원 입력");
+				int empId = scn.nextInt();
+				scn.nextLine();
+				
+				Employees emp = new Employees();
+				emp.setEmployeeId(empId);
+				
+				service.deleteDBEmp(emp);
 			}
 			
 		}//end of while
