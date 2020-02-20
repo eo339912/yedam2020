@@ -84,10 +84,17 @@ public class EmpProc {
 								
 				System.out.println("조회 사원 입력");
 				int empId = scn.nextInt();
-				System.out.println("급여 인상분 입력");
-				int sal = scn.nextInt();
 				scn.nextLine();
-				System.out.println("변경할 이메일 입력");
+				System.out.println("급여 인상분 입력(엔터 = x)");
+				String salNum = scn.nextLine();
+				System.out.println(salNum);
+				int sal = 0;
+				if (salNum != null && !salNum.equals("") ) {
+					sal = Integer.parseInt(salNum); //문자를 숫자타입으로 바꿔주세요.
+				}
+				//int sal = scn.nextInt();
+				//scn.nextLine();
+				System.out.println("변경할 이메일 입력(엔터 = x)");
 				String email = scn.nextLine();
 				
 				Employees emp = new Employees();
